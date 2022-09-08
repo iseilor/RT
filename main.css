@@ -1,0 +1,320 @@
+main {
+    display: grid;
+    background-color: #101828;
+}
+
+.all {
+    display: grid;
+    grid-template-columns: 80px 625px 200px;
+    grid-template-areas: "menus projects active";
+    column-gap: 10px;
+    justify-content: center;
+}
+
+img {
+    width: 32px;
+    height: 32px;
+}
+
+.menus {
+    margin: 10px;
+    grid-area: menus;
+    display: grid;
+    justify-content: center;
+}
+
+.projects {
+    margin: 10px;
+    grid-area: projects;
+    display: grid;
+} 
+
+.active {
+    margin: 10px;
+    grid-area: active;
+    display: grid;
+}
+
+.menus ul {
+    background-color: rgb(34, 42, 56);
+    border-radius: 10px;
+    padding: 0;
+    list-style-type: none;
+    display: grid;
+    padding: 5px;
+    margin-top: 0;
+    align-items: center;
+}
+
+.menus li {
+    width: 32px;
+    height: 32px;
+}
+
+.up-project {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    height: 80px;
+}
+
+.down-project {
+    display: grid;
+    height: 2fr;
+    color: white;
+}
+
+.down-project ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 15px;
+    padding: 0;
+}
+
+.down-project li {
+    background-color: rgb(34, 42, 56);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-top: 20px;
+    height: 150px;
+    align-items: center;
+}
+
+.progressbar { 
+    margin-top: 2px;
+	height: 6px;
+    width: 100%;
+	position: relative;
+    border-radius: 9px;
+	background: #FF4F12;
+}
+
+.progressbar span {
+  display: block;
+  height: 6px;
+  background-color: #7700FF;
+  position: relative;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.stat-proj {
+    font-size: 10px;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    margin-top: 6px;
+    
+}
+
+.stat-proj div {
+    border-radius: 10px;
+    padding: 5px;
+    color: #FF4F12;
+}
+
+.deadline {
+    background-color:  rgb(30, 38, 50);
+}
+
+.icon-proj {
+    border-radius: 10px;
+    display: grid;
+    background-color:  rgb(30, 38, 50);
+    height: 50px;
+    width: 50px;
+    position: relative;
+    top: -23px;
+    margin-bottom: -15px;
+}
+
+.downpart {
+    display: grid;
+    align-self: center;
+    vertical-align: bottom;
+    position: relative;
+    top: 20px;
+    margin: 0;
+    width: 90%;
+}
+
+.icon-proj img {
+    align-self: center; 
+    justify-self: center;
+}
+
+.name-proj {
+    display: grid;
+    text-align: center;
+}
+
+.up-left-project {
+    background-color: rgb(34, 42, 56);
+    display: grid;
+    border-radius: 10px;
+    
+}
+
+.up-left-project ul {
+    padding: 0;
+    display: flex;
+    font-size: 12px;
+    list-style-type: none;
+    justify-content: center;
+    align-self: center;
+    gap: 20px;
+    margin: 5px;
+}
+
+.up-left-project p {
+    font-size: 22px;
+    margin: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.up-right-project {
+    display: grid;
+}
+
+.create {
+    background-color: rgb(34, 42, 56);
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 5px;
+    margin-top: 10px;
+    display: block;
+    align-self: start;
+    justify-self: end;
+}
+
+.people {
+    display: grid;
+    margin-bottom: 0px;
+}
+
+.line {
+    position: relative;
+    top: -16px;
+    border-top: 2px solid white;
+    margin: 0px;
+}
+
+.people h1, .people p{
+    margin: 2px;
+}
+
+.people h1 ,.people h1 p{
+    display: block;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.people ul {
+    list-style-type: none;
+    display: grid;
+    gap: 20px;
+    align-items: center;
+    margin: 5px;
+    padding: 0;
+    margin-top: 7px;
+}
+
+.people li {
+    width: auto;
+    height: 40px;
+}
+
+.progres {
+    position: relative;
+    top: 25px;
+    height: 120px;
+    margin-top: 33px;
+    display: grid;
+    background-color: #1D2533;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.progres ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 5px;
+    margin: 5px;
+    margin-left: 7px;
+    padding: 0;
+}
+
+.progres li {
+    display: grid;
+    height: 40px;
+    width: 75px;
+    justify-items: center;
+    padding: 5px 0;
+}
+
+.progres p {
+    font-size: 17px;
+    align-self: center;
+    margin: 0;
+    color: #FF4F12;
+}
+
+.exit-icon {
+    background-color: rgb(34, 42, 56);
+    border-radius: 10px;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    align-self: flex-end;
+    margin-bottom: 10px;
+    padding: 5px;
+    justify-self: center;
+}
+
+.mini-menus {
+    display: flex;
+    gap: 5px;
+    align-self: flex-end;
+    justify-self: flex-end;
+    margin: 0;
+}
+
+.mini-menus img {
+    width: 32px;
+    height 32px;
+}
+
+.people li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.people img {
+    height: 40px;
+    width: 40px;
+}
+
+.people ul p {
+    display: block;
+    margin: 0;
+    font-size: 10px;
+}
+
+#px {
+    font-size: 7px;
+    color: lightgray;
+}
+
+#px-2 {
+    font-size: 10px;
+    align-self: end;
+    color: white;
+}
+
+#comand {
+    width: 10px !impotant;
+    height: 10px !impotant;
+}

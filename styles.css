@@ -1,0 +1,711 @@
+:root {
+    --bg: #101828;
+    --surface: #1d2533;
+    --surface-2: #222a38;
+    --surface-3: #2a3446;
+    --border: rgba(255, 255, 255, 0.06);
+    --text: #f2f4f7;
+    --muted: #98a2b3;
+    --violet: #7700ff;
+    --orange: #ff4f12;
+    --green: #12b76a;
+    --radius: 14px;
+    --font: "Rostelecom Basis", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    display: block;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+h1, h2 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* Шапка */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 14px 28px;
+    background: rgba(16, 24, 40, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.brand img {
+    width: 36px;
+    height: 36px;
+}
+
+.search {
+    flex: 1;
+    max-width: 420px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: border-color .2s;
+}
+
+.search:focus-within {
+    border-color: var(--violet);
+}
+
+.search img {
+    width: 18px;
+    height: 18px;
+}
+
+.search input {
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+}
+
+.topbar-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-btn {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    transition: background .2s;
+}
+
+.icon-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.icon-btn:hover,
+.icon-btn.active {
+    background: var(--surface-3);
+}
+
+.has-badge::after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    box-shadow: 0 0 0 2px var(--bg);
+}
+
+.divider {
+    width: 1px;
+    height: 28px;
+    margin: 0 8px;
+    background: var(--border);
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--orange);
+    font-weight: 500;
+}
+
+.account img {
+    width: 32px;
+    height: 32px;
+}
+
+/* Раскладка */
+
+.layout {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) 320px;
+    gap: 28px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 28px;
+}
+
+.sidebar {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    min-height: calc(100vh - 152px);
+}
+
+.nav-item {
+    display: grid;
+    place-items: center;
+    height: 48px;
+    border-radius: 12px;
+    transition: background .2s;
+}
+
+.nav-item img {
+    width: 26px;
+    height: 26px;
+}
+
+.nav-item:hover {
+    background: var(--surface-3);
+}
+
+.nav-item.active {
+    background: rgba(119, 0, 255, 0.18);
+    box-shadow: inset 3px 0 0 var(--violet);
+}
+
+.nav-exit {
+    margin-top: auto;
+}
+
+/* Проекты */
+
+.toolbar {
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.toolbar h1 {
+    font-size: 32px;
+    margin-bottom: 14px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 4px;
+    background: var(--surface);
+    border-radius: 12px;
+}
+
+.filter {
+    padding: 8px 14px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--muted);
+    transition: background .2s, color .2s;
+}
+
+.filter:hover {
+    color: var(--text);
+}
+
+.filter.active {
+    background: var(--orange);
+    color: #fff;
+}
+
+.filter .count {
+    margin-left: 6px;
+    opacity: .7;
+    font-size: 12px;
+}
+
+.toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.view-switch {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background: var(--surface);
+    border-radius: 12px;
+}
+
+.view-switch .icon-btn {
+    width: 36px;
+    height: 36px;
+}
+
+.btn-primary,
+.btn-ghost {
+    padding: 11px 18px;
+    border: 0;
+    border-radius: 11px;
+    font-weight: 600;
+    transition: filter .2s, background .2s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--violet), #9b3dff);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.15);
+}
+
+.btn-ghost {
+    background: var(--surface-3);
+}
+
+.project-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.project-list.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-list.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: transform .2s, border-color .2s;
+    animation: appear .3s ease both;
+}
+
+.project:hover {
+    transform: translateY(-3px);
+    border-color: rgba(119, 0, 255, 0.5);
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(6px); }
+}
+
+.project-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.project-icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--surface-3);
+}
+
+.project-icon img {
+    width: 28px;
+    height: 28px;
+}
+
+.project-name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.project-client {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.progress-label b {
+    color: var(--text);
+}
+
+.progress {
+    height: 6px;
+    border-radius: 6px;
+    background: rgba(255, 79, 18, 0.25);
+    overflow: hidden;
+}
+
+.progress span {
+    display: block;
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--violet), #a259ff);
+}
+
+.project-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    font-size: 13px;
+}
+
+.team {
+    display: flex;
+}
+
+.team span {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    margin-left: -6px;
+    letter-spacing: -0.5px;
+    border-radius: 50%;
+    border: 2px solid var(--surface);
+    background: var(--surface-3);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.team span:first-child {
+    margin-left: 0;
+}
+
+.messages {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    margin-right: 8px;
+    color: var(--muted);
+}
+
+.messages img {
+    width: 16px;
+    height: 16px;
+}
+
+.chip {
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--orange);
+    white-space: nowrap;
+}
+
+.chip.done {
+    color: var(--green);
+}
+
+.chip.urgent {
+    background: rgba(255, 79, 18, 0.15);
+}
+
+.project-list.list .project {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(160px, 1fr) auto;
+    align-items: center;
+    gap: 24px;
+    padding: 14px 20px;
+}
+
+.project-list.list .project-foot {
+    margin: 0;
+    gap: 16px;
+}
+
+.empty {
+    padding: 60px 0;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Правая колонка */
+
+.aside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    padding: 22px;
+    background: var(--surface);
+    border-radius: var(--radius);
+}
+
+.card h2 {
+    font-size: 18px;
+}
+
+.card .muted {
+    margin: 6px 0 18px;
+    font-size: 13px;
+}
+
+.activity {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.activity li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+}
+
+.activity-name {
+    color: var(--orange);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.activity-meta {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.stat {
+    padding: 14px;
+    border-radius: 12px;
+    background: var(--bg);
+}
+
+.stat b {
+    display: block;
+    font-size: 26px;
+    color: var(--orange);
+}
+
+.stat span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* Диалог */
+
+dialog {
+    width: min(420px, calc(100% - 32px));
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    color: var(--text);
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 26px;
+}
+
+dialog label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+dialog input {
+    padding: 11px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+}
+
+dialog input:focus {
+    outline: 2px solid var(--violet);
+    outline-offset: -1px;
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Адаптив */
+
+@media (max-width: 1180px) {
+    .layout {
+        grid-template-columns: 72px minmax(0, 1fr);
+    }
+
+    .aside {
+        grid-column: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .topbar {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .search {
+        order: 3;
+        max-width: none;
+        flex-basis: 100%;
+    }
+
+    .account span,
+    .divider {
+        display: none;
+    }
+
+    .layout {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 16px 16px 96px;
+        gap: 20px;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        flex-direction: row;
+        justify-content: space-around;
+        min-height: 0;
+        padding: 8px;
+        border-radius: 0;
+        border-top: 1px solid var(--border);
+    }
+
+    .nav-item {
+        width: 48px;
+    }
+
+    .nav-exit {
+        display: none;
+    }
+
+    .filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        max-width: 100%;
+    }
+
+    .filter {
+        flex: none;
+    }
+
+    .toolbar-title {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .aside {
+        grid-column: 1;
+        grid-template-columns: 1fr;
+    }
+
+    .project-list.list .project {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}
